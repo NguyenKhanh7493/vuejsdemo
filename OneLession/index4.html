@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>kỹ thuật bind 2</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="name">
+        <p>{{ name }}</p>
+
+        <select name="" id="" v-model="selected">
+            <option v-for="option in options" v-bind:value="option.value">
+                {{ option.text }}
+            </option>
+        </select>
+        <span>select: {{ selected }}</span>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'Khánh nè',
+                selected: '',
+                options: [
+                    { text: 'One', value: 'A' },
+                    { text: 'Two', value: 'B' },
+                    { text: 'Three', value: 'C' }
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

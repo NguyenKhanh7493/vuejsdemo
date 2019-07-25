@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="obj">
+        <!-- v-once chỉ giá trị chính nó,,,xem ví dụ nội dung với showpost là biết,nếu ko có v-once thì nó sẽ thay đổi noidung thành nội dung cập nhật -->
+        <!-- <p v-once>{{ noidung }} - {{ showPost() }}</p> -->
+        <p v-html="testMaHTML"></p>
+        <input type="text" v-on:input="changeValue">
+        <p>{{ noidung }}</p>
+        <!-- <p>{{ sayHello() }}</p>
+        <p>{{ showPost() }}</p>
+        <a v-bind:href="link">Trang tin tức tổng hợp</a> -->
+    </div>
+
+    <script>
+        // Tất cả dữ liệu truyền qua html để ở dạng dữ liệu thô
+        new Vue({
+            el: '#obj',
+            data: {
+                noidung: 'chào các bạn,Mình là Khánh',
+                title: 'Khánh',
+                body: 'Hiếu',
+                link: 'https://news.zing.vn',
+                testMaHTML: '<a href="https...abc">Get Password</a>',
+            },
+            methods: {
+                sayHello: function() {
+                    document.write("say Hello")
+                },
+                // showPost: function() {
+                //     this.noidung = "Nội dung cập nhật";
+                //     return this.noidung;
+                // }
+                changeValue: function(event) {
+                    this.noidung = event.target.value;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

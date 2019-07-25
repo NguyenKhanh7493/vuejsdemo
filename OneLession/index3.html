@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="obj">
+        <button @click="sayHi('Khánh cảm ơn bạn')">click nếu khánh đẹp trai</button>
+        <button v-on:click="sayHi('Híu cảm ơn bạng')">Click nếu hiếu đẹp trai</button>
+
+        <input type="checkbox" value="khanh" v-model="checkName">
+        <label for="khanh">khanh</label>
+        <input type="checkbox" value="hieu" v-model="checkName">
+        <label for="hieu">hieu</label>
+        <input type="checkbox" value="nho" v-model="checkName">
+        <label for="nho">nho</label>
+        <span>Bao gom cac ten: {{ checkName }}</span>
+        <!-- multiple tạo kiểu mới option -->
+        <select v-model="selected" multiple>
+            <option disabled value="">CHọn đi</option>
+            <option>rau</option>
+            <option>cá</option>
+            <option>thịt</option>
+        </select>
+        <span>Món đã chọn: {{ selected }}</span>
+    </div>
+
+
+
+    <script>
+        new Vue({
+            el: '#obj',
+            data: {
+                checkName: [],
+                selected: '',
+            },
+            methods: {
+                sayHi: function(message) {
+                    alert(message);
+                }
+            }
+        }); 
+    </script>  
+</body>
+</html>

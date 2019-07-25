@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="obj">
+        <div v-on:mouseover="tinhToaDo">
+        <h1>Bấm nút để tăng giá trị</h1>
+        <button v-on:click="dem += 1">Phát hiện cái mới</button>
+        <button v-on:click="dem++">Phát hiện cái mới hơn</button>
+        <button v-on:click="tangGiaTri">Ấn vào tôi</button>
+        <p>giá trị : {{ dem > 10 ? 'bạn quá giới hạn' : 'Bạn đang nằm trong giới hạn' }}</p>
+        <p>giá trị : {{ dem }}</p>
+        <p>Tọa độ của chuột: {{ x }} / {{ y }}</p>
+        <span v-on:mouseover="dungChuot">Dừng sự Kiện</span> <br/>
+        <input type="text" v-on:keyup.alt="thongbaoAlert">
+        </div>
+    </div>
+
+    <script>
+        // Tất cả dữ liệu truyền qua html để ở dạng dữ liệu thô
+        new Vue({
+            el: '#obj',
+            data: {
+                dem: 0,
+                x: 0,
+                y: 0,
+            },
+            methods: {
+                tangGiaTri: function() {
+                    this.dem++;
+                },
+                tinhToaDo: function(event) {
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                },
+                dungChuot: function() {
+                    event.stopPropagation(); //dừng diễn biến của event mouseover
+                },
+                thongbaoAlert: function() {
+                    alert('ok');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
